@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de tareas 📝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <i class="fas fa-tasks"></i>
+                    <span>Mi Lista de tareas 📝</span>
+                </div>
+                <div class="auth-section">
+                    <div id="user-info" class="user-info" style="display: none;">
+                        <img id="user-avatar" src="img/default.png" alt="Avatar" class="user-avatar">
+                        <span id="user-name"></span>
+                        <button id="logout-btn" class="btn btn-secondary">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                        </button>
+                    </div>
+                    <button id="login-btn" class="btn btn-primary">
+                        <i class="fab fa-google"></i> Iniciar sesión con Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Landing Page -->
+    <section id="landing-page">
+        <div class="container">
+            <div class="explanation-section">
+              <h1>Organiza tu día sin complicaciones</h1>
+              <h2>Aquí puedes crear tus propias listas de tareas</h2>
+              <p>Planea tu semana, divide objetivos en pasos pequeños y programate y mantente sincronizado.</p>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap"></i> Estudio</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Repasar notas</li>
+                        <li><i class="far fa-circle"></i> Practicar inglés 20 min</li>
+                        <li><i class="far fa-circle"></i> Resolver 3 ejercicios</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-briefcase"></i> Trabajo</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Revisar tickets QA</li>
+                        <li><i class="far fa-circle"></i> Actualizar casos de prueba</li>
+                        <li><i class="far fa-circle"></i> Enviar feedback al dev</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-home"></i> Personal</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Comprar víveres</li>
+                        <li><i class="far fa-circle"></i> Pagar servicios</li>
+                        <li><i class="far fa-circle"></i> Agendar cita</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-heartbeat"></i> Fitness/Salud</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Caminata 30 min</li>
+                        <li><i class="far fa-circle"></i> Beber 2L agua</li>
+                        <li><i class="far fa-circle"></i> Preparar lunch saludable</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-utensils"></i> Cocina</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Planificar menú semanal</li>
+                        <li><i class="far fa-circle"></i> Hacer lista de compras</li>
+                        <li><i class="far fa-circle"></i> Preparar comida para congelar</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-paint-brush"></i> Proyectos Creativos</h3>
+                    <ul>
+                        <li><i class="far fa-circle"></i> Diseñar portada del libro</li>
+                        <li><i class="far fa-circle"></i> Escribir capítulo 3</li>
+                        <li><i class="far fa-circle"></i> Revisar correcciones</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section id="app">
+        <div class="container">
+            <div class="app-header">
+                <h2 class="app-title">Mis Tareas</h2>
+                <div class="header-actions">
+                    <button id="manage-categories-btn" class="btn btn-secondary">
+                        <i class="fas fa-tags"></i> Gestionar Categorías
+                    </button>
+                    <div id="task-count" class="task-count">0 tareas</div>
+                </div>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="pending">Pendientes</button>
+                <button class="filter-btn" data-filter="completed">Completadas</button>
+                <select id="category-filter" class="category-filter">
+                    <option value="all">Todas las categorías</option>
+                </select>
+            </div>
+            
+            <!-- Formulario de tarea -->
+            <div class="task-form">
+                <div class="form-group">
+                    <input type="text" id="task-input" class="task-input" placeholder="Escribe una nueva tarea..." autocomplete="off">
+                    <select id="task-category" class="task-category">
+                        <option value="">Sin categoría</option>
+                    </select>
+                    <button id="add-task-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Lista de tareas -->
+            <div id="task-list" class="task-list">
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No hay tareas</h3>
+                    <p>Agrega tu primera tarea para comenzar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de categorías -->
+    <div id="categories-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Gestionar Categorías</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="add-category-form">
+                    <input type="text" id="category-name" placeholder="Nombre de la categoría" class="category-input">
+                    <select id="category-icon" class="category-icon">
+                        <option value="fas fa-list">Lista</option>
+                        <option value="fas fa-briefcase">Trabajo</option>
+                        <option value="fas fa-home">Casa</option>
+                        <option value="fas fa-heartbeat">Salud</option>
+                        <option value="fas fa-graduation-cap">Estudio</option>
+                        <option value="fas fa-shopping-cart">Compras</option>
+                        <option value="fas fa-utensils">Comida</option>
+                        <option value="fas fa-dumbbell">Ejercicio</option>
+                        <option value="fas fa-book">Lectura</option>
+                        <option value="fas fa-music">Música</option>
+                        <option value="fas fa-palette">Arte</option>
+                        <option value="fas fa-car">Viaje</option>
+                        <option value="fas fa-users">Social</option>
+                        <option value="fas fa-star">Importante</option>
+                    </select>
+                    <input type="color" id="category-color" value="#57A4A6" class="category-color">
+                    <button id="add-category-btn" class="btn btn-primary">Agregar Categoría</button>
+                </div>
+                <div id="categories-list" class="categories-list">
+                    <!-- Las categorías se cargarán aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
