@@ -1,24 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { 
-    getAuth, 
-    signInWithPopup, 
-    GoogleAuthProvider, 
-    signOut,
-    onAuthStateChanged 
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut,onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { 
-    getFirestore, 
-    collection, 
-    addDoc, 
-    query, 
-    where, 
-    onSnapshot, 
-    orderBy, 
-    serverTimestamp, 
-    updateDoc, 
-    deleteDoc, 
-    doc 
+    getFirestore, collection, addDoc, query, where, onSnapshot, orderBy, serverTimestamp, updateDoc, deleteDoc, doc 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Aqui se pone la configuración que da firebase
