@@ -1,6 +1,5 @@
-To-Do App con Firebase
 🚀 Guía Rápida de Instalación
-Una aplicación web de tareas con autenticación de Google y base de datos en tiempo real, si quieres saber el maual completo detallado revisar el archivo nombrado como Manual para to-do.pdf
+Una aplicación web de tareas con autenticación de Google y base de datos en tiempo real.
 
 📋 Prerrequisitos
 Cuenta de Google
@@ -8,7 +7,6 @@ Node.js instalado
 Editor de código (VS Code recomendado)
 
 ⚡ Instalación Express
-bash
 # 1. Instalar Firebase CLI (una vez)
 npm install -g firebase-tools
 
@@ -25,10 +23,10 @@ npm install firebase
 python -m http.server 8000
 # o si no tienes Python:
 npx serve
-📚 Documentación Completa
-📖 Manual Detallado
+
+📖 Manual Detallado Documentación Completa
 Para una guía visual paso a paso con capturas de pantalla, descarga el manual completo:
-Descargar Manual PDF
+Manual para to-do.pdf
 
 🔧 Configuración Firebase
 1. Crear Proyecto Firebase
@@ -45,7 +43,6 @@ Habilita y guarda los cambios
 3. Configurar Firestore Database
 Ve a Firestore Database
 En pestaña Reglas, pega:
-javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -54,27 +51,14 @@ service cloud.firestore {
     }
   }
 }
+
 Crea colecciones: categories y tasks
 
-🎯 Estructura del Proyecto
-text
-to-do/
-├── index.html          # Interfaz principal
-├── main.js             # Lógica de la aplicación
-├── style.css           # Estilos
-├── .gitignore          # Archivos ignorados por Git
-└── manual-to-do-app.pdf # Manual completo
-🌐 Probar la Aplicación
-bash
+
+🌐 Para probar la Aplicación
+En caso de no tener python deberas instalarlo
 # Servidor local
 En caso de no tener python deberas instalarlo
+
 python -m http.server 8000
 # Abrir en navegador: http://localhost:8000
-
-✅ Funcionalidades que podras ver
-✅ Autenticación con Google
-✅ Crear, editar y eliminar tareas
-✅ Categorizar tareas
-✅ Almacenamiento en tiempo real
-✅ Interfaz responsive
-
