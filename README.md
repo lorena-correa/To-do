@@ -1,3 +1,5 @@
+📝 To-Do App con Firebase
+
 🚀 Guía Rápida de Instalación
 Una aplicación web de tareas con autenticación de Google y base de datos en tiempo real.
 
@@ -9,24 +11,28 @@ Editor de código (VS Code recomendado)
 ⚡ Instalación Express
 # 1. Instalar Firebase CLI (una vez)
 npm install -g firebase-tools
-
 # 2. Login con Firebase
 firebase login
-
 # 3. Inicializar proyecto (seleccionar Firestore)
 firebase init firestore
-
 # 4. Instalar SDK
 npm install firebase
 
-# 5. Probar localmente
-python -m http.server 8000
-# o si no tienes Python:
-npx serve
+# 5. Probar localmente la Aplicación 🌐 
+# Servidor local
+En caso de no tener python deberas instalarlo
 
-📖 Manual Detallado Documentación Completa
+python -m http.server 8000
+# Abrir en navegador: http://localhost:8000
+
+📝 Nota sobre Python
+Si no tienes Python instalado:
+Usa npx serve como alternativa
+
+📚 Documentación Completa
+📖 Manual Detallado
 Para una guía visual paso a paso con capturas de pantalla, descarga el manual completo:
-Manual para to-do.pdf
+Descargar Manual PDF
 
 🔧 Configuración Firebase
 1. Crear Proyecto Firebase
@@ -42,23 +48,10 @@ Habilita y guarda los cambios
 
 3. Configurar Firestore Database
 Ve a Firestore Database
-En pestaña Reglas, pega:
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-
+En pestaña Reglas, puedes dejar las reglas por defecto o crear nuevas
 Crea colecciones: categories y tasks
 
 
-🌐 Para probar la Aplicación
-En caso de no tener python deberas instalarlo
-# Servidor local
-En caso de no tener python deberas instalarlo
+¡Listo! 🎉 Ahora tienes tu propia aplicación de tareas funcionando con Firebase.
 
-python -m http.server 8000
-# Abrir en navegador: http://localhost:8000
+Este proyecto fue creado para aprendizaje y desarrollo de habilidades en Firebase y desarrollo web.
